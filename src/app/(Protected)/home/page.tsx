@@ -1,6 +1,7 @@
 
 import SignupPage from "@/app/Auth/signup/page"
 import { auth } from "@/auth"
+import SignOut from "@/components/Protected/SignOut"
 
 
 
@@ -17,9 +18,11 @@ console.log(session)
 
   return (
     <div className="flex justify-center items-center w-screen h-screen">
-      <p>
-        Welcome, {session.user?.email}
-      </p>
+      <section>
+        <p>Welcome, {session.user?.email}</p>
+
+        <SignOut/>
+      </section>
     </div>
   );
 }

@@ -12,7 +12,8 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: "Pilter | World Largest AI Platform",
-  description: "",
+  description:
+    "Spark your creativity by exploring over 1,000 similar images inspired by your idea and others' work.",
 };
 
 export default function RootLayout({

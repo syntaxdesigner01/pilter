@@ -1,17 +1,14 @@
-import Footer from "@/components/GeneralComponents/Footer";
-import NavBar from "@/components/GeneralComponents/NavBar";
-import HomeBodyComponent from "@/components/HomeComponents/HomeBodyComponent";
-import SwiperComponent from "@/components/SwiperComponents/SwiperComponent";
-import TestmoniesComponent from "@/components/TestmoniesComponents/TestmoniesComponent";
+import { auth } from "@/auth";
+import HomePage from "@/app/(Protected)/home/page";
+import LandingPage from "@/components/GeneralComponents/LandingPage";
 
-export default function LandingPage() {
-  return (
-  <>
-    <NavBar/>
-    <SwiperComponent/>
-    <HomeBodyComponent/>
-    <TestmoniesComponent/>
-    <Footer/>
-  </> 
-  );
+
+export default async function SessionWrapper() {
+  const session = await auth();
+
+  if (!session) {
+    return <LandingPage />;
+  }
+
+  return <HomePage />;
 }
