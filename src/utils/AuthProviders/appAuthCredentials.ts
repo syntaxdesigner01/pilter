@@ -1,6 +1,8 @@
 "use server";
 
-import { signIn, signOut } from '@/auth';
+import { signIn, signOut } from 'next-auth/react';
+import { redirect } from 'next/navigation';
+import { routeLinks } from '../routerLinks';
 
 const users = [
     {
@@ -12,7 +14,14 @@ const users = [
 ];
 
 export async function signInWithGoogle() {
-    await signIn("google");
+    try{ 
+        await signIn("google")
+        console.log('sign in successfully')
+    }
+    catch(err){
+        console.log(err);
+        redirect(routeLinks.error)
+    }
 }
 
 export async function signOutWithGoogle() {

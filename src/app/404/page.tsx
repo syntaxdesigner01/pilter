@@ -10,10 +10,9 @@ export default function ErrorPage() {
     <section className="flex justify-center items-center w-full">
       <Image src={"/cat.png"} alt="error" height={250} width={250} />
     </section>
-
         <h1 className="font-bold text-xl">Sorry Something went wrong /_ \</h1>
         <p>We currently working on it</p>
-        <CustomButton color="black" className="px-4">
+        <CustomButton color="black" className="px-10 font-extrabold " hover>
        Back
         </CustomButton>
       </section>
