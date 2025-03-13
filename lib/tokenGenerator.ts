@@ -1,20 +1,23 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
+// import { generateSigningKey } from './generateId';
 
 // Load the JWT_SECRET from environment variables
-const JWT_SECRET = process.env.JWT_SECRET || 'your_default_secret';
+// const JWT_SECRET = process.env.JWT_SECRET || 'your_default_secret';
 
 
 // Define the User interface
 interface User {
+    id: string;
     email: string;
     name: string;
+    verifyKey: string
 }
 
 // Function to sign a JWT token
-export const sign_Jwt_Token = (user: User): string => {
+export const sign_Jwt_Token = (user: User,): string => {
     return jwt.sign(
-        { name: user.name, email: user.email },
-        JWT_SECRET as string,
+        { id: user.id, name: user.name, email: user.email, verifyKey:user.verifyKey },
+        user.verifyKey,
         { expiresIn: '30d', algorithm: 'HS256' }
     );
 };
@@ -34,6 +37,8 @@ export const verify_Jwt_Token = (token: string) => {
         }else{
             return "Token expired"
         }
+    //    const key = generateSigningKey()
+    //    return key
 
     } catch (error) {
         console.error("Token verification failed:", error);

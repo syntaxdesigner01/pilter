@@ -1,6 +1,6 @@
 "use client";
 import AuthNavBar from "@/components/Auth/AuthNavBar";
-import AuthWithGoogle from "@/components/Auth/AuthWithGoogle";
+// import AuthWithGoogle from "@/components/Auth/AuthWithGoogle";
 import TextBox from "@/components/Auth/TextBox";
 import CustomButton from "@/components/GeneralComponents/CustomButton";
 import Footer from "@/components/GeneralComponents/Footer";
@@ -10,7 +10,7 @@ import {
   userData,
 } from "@/utils/AuthProviders/appAuthCredentials";
 import { validateEmail, validatePassword } from "@/utils/validators";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -196,7 +196,7 @@ export default function SignupPage() {
           </section>
         </form>
 
-        <section className="mt-4 flex gap-4 items-center font-bold text-xl">
+        {/* <section className="mt-4 flex gap-4 items-center font-bold text-xl">
           <Image
             src="/icons/lineIcone.png"
             alt="line"
@@ -214,11 +214,11 @@ export default function SignupPage() {
             width={0}
             className="md:w-[10vw] w-[20vw] h-1"
           />
-        </section>
+        </section> */}
 
-        <section className="py-4">
+        {/* <section className="py-4">
           <AuthWithGoogle />
-        </section>
+        </section> */}
 
         <section className="flex gap-2 text-lg md:text-xl font-bold pt-10 flex-col md:flex-row text-center">
           <h1>Already have an account?</h1>

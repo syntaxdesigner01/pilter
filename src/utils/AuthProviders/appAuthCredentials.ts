@@ -1,7 +1,7 @@
 "use server";
 
 import { signIn, signOut } from '@/utils/auth';
-import generateId from '../../../lib/generateId';
+import generateId, { generateSigningKey } from '../../../lib/generateId';
 import User from '../../../lib/models/dbSchema';
 import connectdb from '../../../lib/db';
 import bcrypt from 'bcrypt';
@@ -103,6 +103,7 @@ export async function signUpWithCredential({ email, password }: { email: string;
                 existingUserId = await User.findOne({ id });
             } while (existingUserId);
 
+            const key = generateSigningKey()
 
             const userData = {
                 id,
@@ -118,6 +119,7 @@ export async function signUpWithCredential({ email, password }: { email: string;
                 id: newUser.id,
                 name: newUser.name,
                 email: newUser.email,
+                verifyKey: key
                 
             };
             const token: string = sign_Jwt_Token(plainUser);
@@ -150,6 +152,7 @@ export async function signInWithUserCredential({ email, password }: { email: str
                     id: existingUser.id,
                     name: existingUser.name,
                     email: existingUser.email,
+                    verifyKey: existingUser.verifyKey,
                 };
                 const token = sign_Jwt_Token(plainUser);
                 return {

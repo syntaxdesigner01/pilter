@@ -1,6 +1,6 @@
 "use client";
 import AuthNavBar from "@/components/Auth/AuthNavBar";
-import AuthWithGoogle from "@/components/Auth/AuthWithGoogle";
+// import AuthWithGoogle from "@/components/Auth/AuthWithGoogle";
 import TextBox from "@/components/Auth/TextBox";
 import CustomButton from "@/components/GeneralComponents/CustomButton";
 import Footer from "@/components/GeneralComponents/Footer";
@@ -9,7 +9,7 @@ import {
   userData,
 } from "@/utils/AuthProviders/appAuthCredentials";
 import { routeLinks } from "@/utils/routerLinks";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState,useRef } from "react";
@@ -178,7 +178,7 @@ const currentPath = useRef<string>("");
           </section>
         </form>
 
-        <section className="mt-4 flex items-center  gap-4 font-bold text-xl">
+        {/* <section className="mt-4 flex items-center  gap-4 font-bold text-xl">
           <Image
             src={"/icons/lineIcone.png"}
             alt={"line"}
@@ -196,11 +196,11 @@ const currentPath = useRef<string>("");
             width={0}
             className="w-[10vw] h-1"
           />
-        </section>
+        </section> */}
 
-        <section className="py-4">
+        {/* <section className="py-4">
           <AuthWithGoogle />
-        </section>
+        </section> */}
         <section className="flex gap-2 text-lg md:text-xl font-bold pt-10 flex-col md:flex-row text-center">
           <h1>Don’t have an account ? </h1>
           <Link href={routeLinks.signup} className="text-redTheme underline">
